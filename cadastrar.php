@@ -1,4 +1,6 @@
 <?php
+session_start();
+ob_start();
 include_once './conexao.php';
 ?>
 <!DOCTYPE html>
@@ -12,6 +14,9 @@ include_once './conexao.php';
 </head>
 
 <body>
+    <a href="index.php">Listar</a>
+    <a href="cadastrar.php">Cadastrar</a>
+    <hr>
     <h1>Cadastrar</h1>
     <?php
     $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
@@ -37,8 +42,9 @@ include_once './conexao.php';
             $cad_usuario->bindParam(':email', $dados['email'], PDO::PARAM_STR);
             $cad_usuario->execute();
             if ($cad_usuario->rowCount()) {
-                echo "<p style='width: 30%; text-align: center; color: white; background: green; padding: 5px;'>Usuário cadastrado!</p>";
                 unset($dados);
+                $_SESSION['msg_success'] = "<p style='width: 30%; text-align: center; color: white; background: green; padding: 5px;'>Usuário cadastrado!</p>";
+                header("Location: index.php");
             } else {
                 echo "<p 'style='width: 30%; text-align: center; color: white; background: red; padding: 5px;'>Erro: cadastro inválido!</p>";
             }
