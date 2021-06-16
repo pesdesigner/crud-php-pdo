@@ -30,7 +30,7 @@ include_once './conexao.php';
     //  var_dump($pagina);
 
     // setar a qntd de registros por página
-    $limite_resultado = 40;
+    $limite_resultado = 4;
 
     // calcular o inicio da visualização
     $inicio = ($limite_resultado * $pagina) - $limite_resultado;
@@ -47,7 +47,8 @@ include_once './conexao.php';
             echo "ID: $id <br>";
             echo "Nome: $nome <br>";
             echo "E-mail: $email <br><br>";
-            echo "<a href='visualizar.php?id=$id'>Visualizar</a>";
+            echo "<a href='visualizar.php?id=$id'>Visualizar</a><br><br>";
+            echo "<a href='editar.php?id=$id'>Editar</a>";
             echo "<hr>";
         }
         // qntd de registros no BD
