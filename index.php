@@ -48,7 +48,8 @@ include_once './conexao.php';
             echo "Nome: $nome <br>";
             echo "E-mail: $email <br><br>";
             echo "<a href='visualizar.php?id=$id'>Visualizar</a><br><br>";
-            echo "<a href='editar.php?id=$id'>Editar</a>";
+            echo "<a href='editar.php?id=$id'>Editar</a><br><br>";
+            echo "<a href='excluir.php?id=$id'>Excluir</a>";
             echo "<hr>";
         }
         // qntd de registros no BD
